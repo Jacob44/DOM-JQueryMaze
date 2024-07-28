@@ -4,6 +4,7 @@ $(document).ready(function() {
     // Function to handle losing the game
     function loseGame() {
         $(".boundary").addClass("youlose");
+        $("#status").text("You lose!");
         gameLost = true;
     }
 
@@ -15,13 +16,15 @@ $(document).ready(function() {
     // Click handler for Start
     $("#start").click(function() {
         $(".boundary").removeClass("youlose");
+        $("#status").text(""); // Clear the status message
         gameLost = false;
     });
 
     // Mouseover handler for End
     $("#end").mouseover(function() {
         if (!gameLost) {
-            alert("You win!");
+            $("#status").text("You win!");
         }
     });
 });
+
